@@ -1,0 +1,87 @@
+opt_in_rules: 
+  - attributes
+
+# Exclude default rules from running
+disabled_rules: 
+  - todo
+
+# Rules run by `swiftlint analyze`
+analyzer_rules:
+  - unused_declaration
+  - unused_import
+
+# Paths for linting.
+included:
+  - GithubTest
+  - GithubTestTests
+
+# Paths to ignore during linting. Takes precedence over `included`.
+excluded:
+  - Pods
+  - "**/*/*/*.generated.swift"
+
+# Configured length rules
+line_length:
+  warning: 200
+  error: 250
+  ignores_urls: true
+  ignores_function_declarations: true
+  ignores_comments: true
+
+type_body_length:
+  warning: 300
+  error: 400
+  
+function_body_length:
+  warning: 60
+  error: 100
+
+file_length:
+  warning: 500
+  error: 800
+  ignore_comment_only_lines: true
+
+type_name:
+  min_length: 3
+  max_length:
+    warning: 50
+    error: 60
+
+# Configured rules
+attributes:
+  always_on_same_line:
+    - "@Published"
+    - "@Binding"
+    - "@State"
+    - "@StateObject"
+    - "@ObservedObject"
+    - "@NSManaged"
+    - "@objc"
+  always_on_line_above:
+    - "@ViewBuilder"
+    - "@available"
+    - "@discardableResult"
+
+force_cast: warning
+force_try: warning
+
+identifier_name:
+  excluded:
+    - i
+    - x
+    - y
+    - z
+    - id
+    - up
+    - dx
+    - dy
+    - uv
+    - to
+    - ok
+    
+nesting:
+  type_level: 2
+
+trailing_whitespace:
+  ignores_empty_lines: true
+  ignores_comments: true

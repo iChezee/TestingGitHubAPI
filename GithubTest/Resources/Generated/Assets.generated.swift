@@ -4,11 +4,11 @@ import SwiftUI
 
 // MARK: - Asset Catalogs
 
- typealias GHColor = Assets.Colors
- typealias GHImage = Assets.Images
- typealias GHIcons = Assets.Icons
+typealias GHColor = Assets.Colors
+typealias GHImage = Assets.Images
+typealias GHIcons = Assets.Icons
 
- enum Assets {
+enum Assets {
    enum Colors {
        static let background = CustomColor(name: "background")
        static let border = CustomColor(name: "border")
@@ -23,12 +23,12 @@ import SwiftUI
   }
 }
 
- final class CustomColor {
-   fileprivate(set) var name: String
-   typealias AssetColor = UIColor
-   var view: Color { Color(name) }
+final class CustomColor {
+  fileprivate(set) var name: String
+  typealias AssetColor = UIColor
+  var view: Color { Color(name) }
 
-   private(set) lazy var color: AssetColor = {
+  private(set) lazy var color: AssetColor = {
    guard let color = AssetColor(asset: self) else {
     fatalError("Unable to load color asset named \(name).")
    }
@@ -40,17 +40,17 @@ import SwiftUI
   }
 }
 
- extension CustomColor.AssetColor {
+extension CustomColor.AssetColor {
   convenience init?(asset: CustomColor) {
     let bundle = BundleToken.bundle
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
   }
 }
 
- struct CustomImage {
-   typealias AssetImage = UIImage
-   fileprivate(set) var name: String
-   var view: Image { Image(uiImage: image) }
+struct CustomImage {
+  typealias AssetImage = UIImage
+  fileprivate(set) var name: String
+  var view: Image { Image(uiImage: image) }
 
    var image: AssetImage {
     let bundle = BundleToken.bundle
@@ -62,7 +62,7 @@ import SwiftUI
   }
 }
 
- extension CustomImage.AssetImage {
+extension CustomImage.AssetImage {
   convenience init?(asset: CustomImage) {
     let bundle = BundleToken.bundle
     self.init(named: asset.name, in: bundle, compatibleWith: nil)

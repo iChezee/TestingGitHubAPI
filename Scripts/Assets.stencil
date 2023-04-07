@@ -13,9 +13,9 @@ import SwiftUI
 
 // MARK: - Asset Catalogs
 
-{{accessModifier}} typealias {{colorAliasName|}} = {{enumName}}.Colors
-{{accessModifier}} typealias {{imageAliasName|}} = {{enumName}}.Images
-{{accessModifier}} typealias {{iconsAliasName|}} = {{enumName}}.Icons
+{{accessModifier}}typealias {{colorAliasName|}} = {{enumName}}.Colors
+{{accessModifier}}typealias {{imageAliasName|}} = {{enumName}}.Images
+{{accessModifier}}typealias {{iconsAliasName|}} = {{enumName}}.Icons
 {% macro enumBlock assets %}
   {% call casesBlock assets %}
 {% endmacro %}
@@ -33,7 +33,7 @@ import SwiftUI
   {% endfor %}
 {% endmacro %}
 
-{{accessModifier}} enum {{enumName}} {
+{{accessModifier}}enum {{enumName}} {
   {% if catalogs.count > 1 or param.forceFileNameEnum %}
   {% for catalog in catalogs %}
   {{accessModifier}} enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
@@ -45,12 +45,12 @@ import SwiftUI
   {% endif %}
 }
 
-{{accessModifier}} final class {{colorType}} {
-  {{accessModifier}} fileprivate(set) var name: String
-  {{accessModifier}} typealias AssetColor = UIColor
-  {{accessModifier}} var view: Color { Color(name) }
+{{accessModifier}}final class {{colorType}} {
+  {{accessModifier}}fileprivate(set) var name: String
+  {{accessModifier}}typealias AssetColor = UIColor
+  {{accessModifier}}var view: Color { Color(name) }
 
-  {{accessModifier}} private(set) lazy var color: AssetColor = {
+  {{accessModifier}}private(set) lazy var color: AssetColor = {
    guard let color = AssetColor(asset: self) else {
     fatalError("Unable to load color asset named \(name).")
    }
@@ -62,17 +62,17 @@ import SwiftUI
   }
 }
 
-{{accessModifier}} extension {{colorType}}.AssetColor {
+{{accessModifier}}extension {{colorType}}.AssetColor {
   convenience init?(asset: {{colorType}}) {
     let bundle = {{param.bundle|default:"BundleToken.bundle"}}
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
   }
 }
 
-{{accessModifier}} struct {{imageType}} {
-  {{accessModifier}} typealias AssetImage = UIImage
-  {{accessModifier}} fileprivate(set) var name: String
-  {{accessModifier}} var view: Image { Image(uiImage: image) }
+{{accessModifier}}struct {{imageType}} {
+  {{accessModifier}}typealias AssetImage = UIImage
+  {{accessModifier}}fileprivate(set) var name: String
+  {{accessModifier}}var view: Image { Image(uiImage: image) }
 
   {{accessModifier}} var image: AssetImage {
     let bundle = {{param.bundle|default:"BundleToken.bundle"}}
@@ -84,7 +84,7 @@ import SwiftUI
   }
 }
 
-{{accessModifier}} extension {{imageType}}.AssetImage {
+{{accessModifier}}extension {{imageType}}.AssetImage {
   convenience init?(asset: {{imageType}}) {
     let bundle = {{param.bundle|default:"BundleToken.bundle"}}
     self.init(named: asset.name, in: bundle, compatibleWith: nil)

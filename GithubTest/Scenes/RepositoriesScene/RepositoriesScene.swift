@@ -44,4 +44,3 @@ struct RepositoriesScene: View {
 extension Sizes {
     static let logoSize: CGFloat = 64
 }
-

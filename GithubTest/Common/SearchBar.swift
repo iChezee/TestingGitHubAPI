@@ -35,11 +35,11 @@ struct SearchBar: View {
                     searchText = ""
                     onEraseTapped()
                     UIApplication.shared.endEditing()
-                }) {
+                }, label: {
                     GHIcons.erase.view
                         .resizable()
                         .frame(width: Sizes.medium, height: Sizes.medium)
-                }
+                })
             }
         }
         .frame(height: Sizes.height)
@@ -55,4 +55,3 @@ fileprivate extension UIApplication {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
-

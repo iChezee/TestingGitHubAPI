@@ -93,11 +93,11 @@
 		3647384029DF2D80008F07CD /* GithubTest */ = {
 			isa = PBXGroup;
 			children = (
-				3647388429DF911F008F07CD /* Resources */,
 				3647386B29DF47D8008F07CD /* App */,
 				3647387B29DF4FC0008F07CD /* Common */,
 				3647386E29DF4950008F07CD /* Scenes */,
 				3647386D29DF4947008F07CD /* Services */,
+				3647388429DF911F008F07CD /* Resources */,
 			);
 			path = GithubTest;
 			sourceTree = "<group>";
@@ -229,7 +229,8 @@
 			buildConfigurationList = 3647386229DF2D82008F07CD /* Build configuration list for PBXNativeTarget "GithubTest" */;
 			buildPhases = (
 				58311F7DE944E69B2CAFE453 /* [CP] Check Pods Manifest.lock */,
-				3647388329DF8FAB008F07CD /* SwiftGen run */,
+				3647388329DF8FAB008F07CD /* SwiftGen */,
+				36D8D80D29DFA00700852BFA /* SwiftLint */,
 				3647383A29DF2D80008F07CD /* Sources */,
 				3647383B29DF2D80008F07CD /* Frameworks */,
 				3647383C29DF2D80008F07CD /* Resources */,
@@ -320,7 +321,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3647388329DF8FAB008F07CD /* SwiftGen run */ = {
+		3647388329DF8FAB008F07CD /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -330,7 +331,7 @@
 			);
 			inputPaths = (
 			);
-			name = "SwiftGen run";
+			name = SwiftGen;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -338,6 +339,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n    #Assets\n    \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" config lint --config \"${PROJECT_DIR}/scripts/swiftgen-assets.yml\";\n    \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" config run --config \"${PROJECT_DIR}/scripts/swiftgen-assets.yml\";\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36D8D80D29DFA00700852BFA /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		58311F7DE944E69B2CAFE453 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

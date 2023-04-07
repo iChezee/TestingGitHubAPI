@@ -1,3 +1,4 @@
 /GithubTest.xcodeproj/xcuserdata
 /Pods
 *.xcworkspace
+*.generated

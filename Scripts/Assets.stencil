@@ -1,0 +1,106 @@
+// swiftlint:disable:all
+{% if catalogs %}
+{% set enumName %}{{param.enumName|default:"Assets"}}{% endset %}
+{% set colorType %}{{param.colorTypeName|default:"CustomColor"}}{% endset %}
+{% set imageType %}{{param.imageTypeName|default:"CustomImage"}}{% endset %}
+{% set accessModifier %}{% if param.publicAccess %}public{% else %}{% endif %}{% endset %}
+{% set forceNamespaces %}{{param.forceProvidesNamespaces|default:"true"}}{% endset %}
+{% set imageAliasName %}{{"GHImage"}}{% endset %}
+{% set colorAliasName %}{{"GHColor"}}{% endset %}
+{% set iconsAliasName %}{{"GHIcons"}}{% endset %}
+import UIKit
+import SwiftUI
+
+// MARK: - Asset Catalogs
+
+{{accessModifier}} typealias {{colorAliasName|}} = {{enumName}}.Colors
+{{accessModifier}} typealias {{imageAliasName|}} = {{enumName}}.Images
+{{accessModifier}} typealias {{iconsAliasName|}} = {{enumName}}.Icons
+{% macro enumBlock assets %}
+  {% call casesBlock assets %}
+{% endmacro %}
+{% macro casesBlock assets %}
+  {% for asset in assets %}
+  {% if asset.type == "color" %}
+  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{colorType}}(name: "{{asset.value}}")
+  {% elif asset.type == "image" %}
+  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{imageType}}(name: "{{asset.value}}")
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  {{accessModifier}} enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call casesBlock asset.items %}{% endfilter %}
+  }
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{{accessModifier}} enum {{enumName}} {
+  {% if catalogs.count > 1 or param.forceFileNameEnum %}
+  {% for catalog in catalogs %}
+  {{accessModifier}} enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:4 %}{% call enumBlock catalog.assets %}{% endfilter %}
+  }
+  {% endfor %}
+  {% else %}
+  {% call enumBlock catalogs.first.assets %}
+  {% endif %}
+}
+
+{{accessModifier}} final class {{colorType}} {
+  {{accessModifier}} fileprivate(set) var name: String
+  {{accessModifier}} typealias AssetColor = UIColor
+  {{accessModifier}} var view: Color { Color(name) }
+
+  {{accessModifier}} private(set) lazy var color: AssetColor = {
+   guard let color = AssetColor(asset: self) else {
+    fatalError("Unable to load color asset named \(name).")
+   }
+    return color
+   }()
+
+  fileprivate init(name: String) {
+    self.name = name
+  }
+}
+
+{{accessModifier}} extension {{colorType}}.AssetColor {
+  convenience init?(asset: {{colorType}}) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(named: asset.name, in: bundle, compatibleWith: nil)
+  }
+}
+
+{{accessModifier}} struct {{imageType}} {
+  {{accessModifier}} typealias AssetImage = UIImage
+  {{accessModifier}} fileprivate(set) var name: String
+  {{accessModifier}} var view: Image { Image(uiImage: image) }
+
+  {{accessModifier}} var image: AssetImage {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    let image = AssetImage(named: name, in: bundle, compatibleWith: nil)
+    guard let result = image else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+}
+
+{{accessModifier}} extension {{imageType}}.AssetImage {
+  convenience init?(asset: {{imageType}}) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(named: asset.name, in: bundle, compatibleWith: nil)
+  }
+}
+{% if not param.bundle %}
+
+private final class BundleToken {
+  static let bundle: Bundle = {
+    #if SWIFT_PACKAGE
+    return Bundle.module
+    #else
+    return Bundle(for: BundleToken.self)
+    #endif
+  }()
+}
+{% endif %}
+{% endif %}
+

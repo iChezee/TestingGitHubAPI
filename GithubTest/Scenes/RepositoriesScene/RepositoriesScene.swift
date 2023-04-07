@@ -7,6 +7,17 @@ struct RepositoriesScene: View {
     var body: some View {
         ScrollView {
             VStack(spacing: Sizes.medium) {
+                HStack {
+                    Spacer()
+                    GHIcons.filter.view
+                        .resizable()
+                        .frame(width: Sizes.large, height: Sizes.large)
+                        .padding(.trailing, Sizes.medium)
+                        .onTapGesture {
+                            viewModel.filterTapped()
+                        }
+                }
+                .padding(.bottom, -Sizes.large)
                 GHImage.ghLogo.view
                     .resizable()
                     .frame(width: Sizes.logoSize, height: Sizes.logoSize)

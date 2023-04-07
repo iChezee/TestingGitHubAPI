@@ -18,6 +18,7 @@ enum Assets {
    enum Icons {
        static let erase = CustomImage(name: "erase")
        static let favourite = CustomImage(name: "favourite")
+       static let filter = CustomImage(name: "filter")
        static let unfavourite = CustomImage(name: "unfavourite")
   }
    enum Images {

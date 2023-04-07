@@ -12,9 +12,20 @@ class RepositoriesSceneViewModel: ObservableObject {
         }
     }
     
-    private var fetchedRepos = [Repository]()
+    private var fetchedRepositories = [Repository]() {
+        didSet {
+            filterByFavouriteRepositories()
+        }
+    }
+    private var isLoading = false
     private var currentPage = 1
     private var bunch = 20
+    private var total = 0
+    private var isFiltered = false {
+        didSet {
+            filterByFavouriteRepositories()
+        }
+    }
     private var searchText = ""
     
     init() {
@@ -39,18 +50,36 @@ class RepositoriesSceneViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchNext() {
+        if repositories.count < total && !isLoading {
+            currentPage += 1
+            fetchRepositories()
+        }
+    }
+    
+    func filterTapped() {
+        isFiltered.toggle()
+    }
 }
 
 private extension RepositoriesSceneViewModel {
     func fetchRepositories() {
+        isLoading = true
         Task {
             let result = await network.fetchRepos(at: currentPage,
                                                   searchText: searchText,
                                                   period: selectedPeriod)
+            DispatchQueue.main.sync { [weak self] in
+                self?.isLoading = false
+            }
             switch result {
             case .success(let response):
-                DispatchQueue.main.sync {
-                    self.repositories = checkFavourites(response.repos)
+                total = response.total
+                DispatchQueue.main.sync { [weak self] in
+                    if let repos = self?.checkFavourites(response.repos) {
+                        self?.fetchedRepositories.append(contentsOf: repos)
+                    }
                 }
             case .failure(let error):
                 print(error)
@@ -67,6 +96,10 @@ private extension RepositoriesSceneViewModel {
         }
         
         return repos
+    }
+    
+    func filterByFavouriteRepositories() {
+        repositories = isFiltered ? fetchedRepositories.filter { $0.isFavourite } : fetchedRepositories
     }
 }
 

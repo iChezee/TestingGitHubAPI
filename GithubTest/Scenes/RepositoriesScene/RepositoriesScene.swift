@@ -12,7 +12,7 @@ struct RepositoriesScene: View {
                 .frame(width: Sizes.logoSize, height: Sizes.logoSize)
                 .background(GHColor.background.view)
             periodPicker
-            SearchBar(onSearchChanged: ( viewModel.onSearchTextchanged ),
+            SearchBar(onSearchChanged: ( viewModel.onSearchTextChanged ),
                       onSearchTapped: ( viewModel.onSearchTextSelected ),
                       onEraseTapped: { viewModel.onSearchTextSelected("") })
             mainList

@@ -1,6 +1,30 @@
 import Foundation
 import Combine
 
+class RepositoriesSceneViewModel: ObservableObject {
+    @Published var repositories = [Repository]()
+    
+    init() {
+        
+    }
+    
+    func favouriteTapped(_ repo: Repository) {
+        
+    }
+    
+    func periodChanged(for period: SelectedPeriod) {
+        
+    }
+    
+    func onSearchTextChanged(_ text: String) {
+        
+    }
+    
+    func onSearchTextSelected(_ text: String) {
+        
+    }
+}
+
 enum SelectedPeriod: Int, CaseIterable {
     case day = 0
     case week
@@ -15,21 +39,5 @@ enum SelectedPeriod: Int, CaseIterable {
         case .year:
             return "Year"
         }
-    }
-}
-
-class RepositoriesSceneViewModel: ObservableObject {
-    @Published var searchText = ""
-    
-    func periodChanged(for period: SelectedPeriod) {
-        
-    }
-    
-    func onSearchTextchanged(_ text: String) {
-        
-    }
-    
-    func onSearchTextSelected(_ text: String) {
-        
     }
 }

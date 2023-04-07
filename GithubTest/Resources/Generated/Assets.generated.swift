@@ -19,6 +19,7 @@ enum Assets {
        static let erase = CustomImage(name: "erase")
   }
    enum Images {
+       static let avatarPlaceholder = CustomImage(name: "avatarPlaceholder")
        static let ghLogo = CustomImage(name: "ghLogo")
   }
 }

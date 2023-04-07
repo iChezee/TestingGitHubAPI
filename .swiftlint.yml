@@ -4,6 +4,7 @@ opt_in_rules:
 # Exclude default rules from running
 disabled_rules: 
   - todo
+  - for_where
 
 # Rules run by `swiftlint analyze`
 analyzer_rules:

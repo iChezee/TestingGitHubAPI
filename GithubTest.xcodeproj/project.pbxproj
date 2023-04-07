@@ -28,6 +28,9 @@
 		36D8D82329DFBC1400852BFA /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82229DFBC1400852BFA /* Owner.swift */; };
 		36D8D82529DFC09300852BFA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82429DFC09300852BFA /* Reachability.swift */; };
 		36D8D82B29DFC82A00852BFA /* FavouritesStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82A29DFC82A00852BFA /* FavouritesStorageImpl.swift */; };
+		36D8D82D29DFD01000852BFA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82C29DFD01000852BFA /* Date+Extensions.swift */; };
+		36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82F29DFD46200852BFA /* RepositoriesList.swift */; };
+		36D8D83429DFFE3F00852BFA /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D83329DFFE3F00852BFA /* CacheStorage.swift */; };
 		A4AA27CCA365BCD0D50A4DC0 /* libPods-GithubTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE91B0911CF00AA12DC9F383 /* libPods-GithubTest.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		36D8D82229DFBC1400852BFA /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		36D8D82429DFC09300852BFA /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		36D8D82A29DFC82A00852BFA /* FavouritesStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStorageImpl.swift; sourceTree = "<group>"; };
+		36D8D82C29DFD01000852BFA /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		36D8D82F29DFD46200852BFA /* RepositoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesList.swift; sourceTree = "<group>"; };
+		36D8D83329DFFE3F00852BFA /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 		529E7A76FF78E2B74C027A5E /* Pods-GithubTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTest.release.xcconfig"; path = "Target Support Files/Pods-GithubTest/Pods-GithubTest.release.xcconfig"; sourceTree = "<group>"; };
 		AE91B0911CF00AA12DC9F383 /* libPods-GithubTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GithubTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98A9358FF6D76CAFEFB4D /* Pods-GithubTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTest.debug.xcconfig"; path = "Target Support Files/Pods-GithubTest/Pods-GithubTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 		3647386D29DF4947008F07CD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				36D8D83529DFFE4300852BFA /* CacheStorage */,
 				3647387429DF4ACA008F07CD /* FavouritesStorage */,
 				3647387329DF4AC0008F07CD /* NetworkService */,
 			);
@@ -152,6 +159,7 @@
 		3647386E29DF4950008F07CD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				36D8D82E29DFD45200852BFA /* RepositoriesList */,
 				3647387729DF4D85008F07CD /* RepositoriesScene */,
 				3647387829DF4D93008F07CD /* DetailsScene */,
 			);
@@ -234,8 +242,7 @@
 		36D8D80F29DFA4E700852BFA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				36D8D81129DFA50200852BFA /* Endpoint */,
-				36D8D81629DFA86800852BFA /* Endpoint.swift */,
+				36D8D81129DFA50200852BFA /* Endpoints */,
 				36D8D81029DFA4FC00852BFA /* Entities */,
 			);
 			path = Models;
@@ -250,12 +257,13 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		36D8D81129DFA50200852BFA /* Endpoint */ = {
+		36D8D81129DFA50200852BFA /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
 				36D8D81D29DFA9AF00852BFA /* RepoList */,
+				36D8D81629DFA86800852BFA /* Endpoint.swift */,
 			);
-			path = Endpoint;
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		36D8D81D29DFA9AF00852BFA /* RepoList */ = {
@@ -270,6 +278,7 @@
 		36D8D82629DFC58700852BFA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				36D8D82C29DFD01000852BFA /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +289,22 @@
 				3647387C29DF4FD0008F07CD /* SearchBar.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		36D8D82E29DFD45200852BFA /* RepositoriesList */ = {
+			isa = PBXGroup;
+			children = (
+				36D8D82F29DFD46200852BFA /* RepositoriesList.swift */,
+			);
+			path = RepositoriesList;
+			sourceTree = "<group>";
+		};
+		36D8D83529DFFE4300852BFA /* CacheStorage */ = {
+			isa = PBXGroup;
+			children = (
+				36D8D83329DFFE3F00852BFA /* CacheStorage.swift */,
+			);
+			path = CacheStorage;
 			sourceTree = "<group>";
 		};
 		43D1FDD0DBCA4C2224BBAD5C /* Pods */ = {
@@ -470,15 +495,18 @@
 			files = (
 				3647387029DF49EC008F07CD /* RepositoriesScene.swift in Sources */,
 				3647387629DF4D25008F07CD /* DetailsScene.swift in Sources */,
+				36D8D83429DFFE3F00852BFA /* CacheStorage.swift in Sources */,
 				36D8D81F29DFA9C200852BFA /* RepoListResponse.swift in Sources */,
 				36D8D81529DFA6D800852BFA /* FavouritesStorage.swift in Sources */,
 				3647387D29DF4FD0008F07CD /* SearchBar.swift in Sources */,
 				36D8D81729DFA86800852BFA /* Endpoint.swift in Sources */,
 				36D8D82129DFAF5600852BFA /* NetworkService.swift in Sources */,
+				36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */,
 				36D8D82B29DFC82A00852BFA /* FavouritesStorageImpl.swift in Sources */,
 				36D8D81329DFA51700852BFA /* Repository.swift in Sources */,
 				3647387A29DF4DB0008F07CD /* RepositoriesSceneViewModel.swift in Sources */,
 				3647384229DF2D80008F07CD /* GithubTestApp.swift in Sources */,
+				36D8D82D29DFD01000852BFA /* Date+Extensions.swift in Sources */,
 				3647388D29DF9243008F07CD /* Assets.generated.swift in Sources */,
 				3647388229DF5441008F07CD /* Sizes.swift in Sources */,
 				36D8D81C29DFA96B00852BFA /* NetworkServiceImpl.swift in Sources */,
@@ -628,7 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubTest/App/Info.plist;
@@ -661,7 +689,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubTest/App/Info.plist;

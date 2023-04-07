@@ -1,15 +1,16 @@
 import Foundation
 
-struct Repository: Hashable {
+struct Repository: Hashable, Identifiable {
     let id: Int
     let name: String
     let owner: Owner
     let description: String?
     let starsCount: Int
-    let language: String
+    let language: String?
     let forks: Int
-    let creationDate: Date?
+    let creationDate: Date
     let repoLink: URL
+    var isFavourite = false
 }
 
 extension Repository: Decodable {
@@ -32,7 +33,7 @@ extension Repository: Decodable {
         owner = try values.decode(Owner.self, forKey: .owner)
         description = try? values.decode(String.self, forKey: .description)
         starsCount = try values.decode(Int.self, forKey: .starsCount)
-        language = try values.decode(String.self, forKey: .language)
+        language = try? values.decode(String.self, forKey: .language)
         forks = try values.decode(Int.self, forKey: .forks)
         creationDate = try values.decode(Date.self, forKey: .creationDate)
         repoLink = try values.decode(URL.self, forKey: .repoLink)

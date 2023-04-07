@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "five-pointed-star-yellow-clip-art-watercolor-star-c13112d48d9d6cec4b218a8c0b8347c9.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "five-pointed-star-yellow-clip-art-watercolor-star-c13112d48d9d6cec4b218a8c0b8347c9 1.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

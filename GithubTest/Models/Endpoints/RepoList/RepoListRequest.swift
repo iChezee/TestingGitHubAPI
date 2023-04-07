@@ -7,18 +7,11 @@ struct RepoListRequest: Endpoint {
     var queryParameters: [String: String]?
     var body: Data?
     
-    init(page: Int = 1, searchText: String = "", language: Language = .swift) {
-        queryParameters = ["q": "\(searchText)+language:\(language.rawValue)",
+    init(page: Int, searchText: String, selectedPeriod: SelectedPeriod) {
+        queryParameters = ["q": "\(searchText)+created:>\(selectedPeriod.date)",
                            "sort": "stars",
                            "order": "desc",
                            "per_page": "20",
                            "page": "\(page)"]
-    }
-}
-
-extension RepoListRequest {
-    enum Language: String {
-        case swift
-        case objectiveC = "objective-c"
     }
 }

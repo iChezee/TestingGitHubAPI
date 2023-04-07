@@ -15,14 +15,14 @@ class NetworkServiceImpl {
 }
 
 extension NetworkServiceImpl: NetworkService {
-    func fetchRepos(at page: Int = 1, searchText: String = "") async -> Result<RepoListResponse, Error> {
+    func fetchRepos(at page: Int, searchText: String, period: SelectedPeriod) async -> Result<RepoListResponse, NetworkError> {
         if let noInternet = checkInternet() {
             return .failure(noInternet)
         }
         
-        let reqeust = makeRequest(RepoListRequest(page: page, searchText: searchText))
+        let request = makeRequest(RepoListRequest(page: page, searchText: searchText, selectedPeriod: period))
         do {
-            let (data, response) = try await session.data(for: reqeust)
+            let (data, response) = try await session.data(for: request)
             if let error = checkForResponseErrors(response: response) {
                 return .failure(error)
             }
@@ -34,7 +34,7 @@ extension NetworkServiceImpl: NetworkService {
                 return .failure(NetworkError.unknown)
             }
         } catch {
-            return .failure(NetworkError.decoding)
+            return .failure(NetworkError.decoding(error))
         }
     }
 }

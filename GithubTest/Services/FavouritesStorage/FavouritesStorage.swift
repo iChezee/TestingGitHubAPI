@@ -5,3 +5,8 @@ protocol FavouritesStorage {
     func toogleFavourite(_ repo: Repository)
     func eraseData()
 }
+
+@propertyWrapper
+struct DefaultFavoritesService {
+    var wrappedValue: FavouritesStorage { FavouritesStorageImpl() }
+}

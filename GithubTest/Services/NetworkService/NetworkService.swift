@@ -1,7 +1,12 @@
 import Foundation
 
 protocol NetworkService {
-    func fetchRepos(at page: Int, searchText: String) async -> Result<RepoListResponse, Error>
+    func fetchRepos(at page: Int, searchText: String, period: SelectedPeriod) async -> Result<RepoListResponse, NetworkError>
+}
+
+@propertyWrapper
+struct DefaultNetworkService {
+    var wrappedValue: NetworkService { NetworkServiceImpl(scheme: "https", baseURL: "api.github.com")}
 }
 
 public enum NetworkError: LocalizedError {

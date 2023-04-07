@@ -1,25 +1,25 @@
 import Foundation
 
 class FavouritesStorageImpl: FavouritesStorage {
-    private var favouriteRepos = Set<String>()
+    private var favouriteRepos = Set<Int>()
     private let localStorageSaveKey = "LocalStorageSaveKey"
     
     init() {
         if let favourites = UserDefaults.standard.object(forKey: localStorageSaveKey) as? [String] {
-            favouriteRepos = Set(favourites)
+            favouriteRepos = Set(favourites.compactMap { Int($0) })
         }
     }
     
     func isFavourite(_ repo: Repository) -> Bool {
-        favouriteRepos.contains(repo.name)
+        favouriteRepos.contains(repo.id)
     }
     
-    func toogleFavourite(_ repo: Repository) {
-        let repoName = repo.name
-        if favouriteRepos.first(where: { $0 == repoName }) != nil {
-            favouriteRepos.remove(repoName)
+    func toogleFavourite(_ repository: Repository) {
+        let repositoryID = repository.id
+        if favouriteRepos.first(where: { $0 == repositoryID }) != nil {
+            favouriteRepos.remove(repositoryID)
         } else {
-            favouriteRepos.insert(repoName)
+            favouriteRepos.insert(repositoryID)
         }
         
         saveData()

@@ -23,7 +23,9 @@ struct SearchBar: View {
                     if !isEditing && !searchText.isEmpty {
                         onSearchChanged(searchText)
                     }
-                    self.showCancelButton = isEditing
+                    withAnimation {
+                        self.showCancelButton = isEditing
+                    }
                 }, onCommit: {
                     onSearchTapped(searchText)
                 })

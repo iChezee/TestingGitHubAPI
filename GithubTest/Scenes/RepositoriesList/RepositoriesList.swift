@@ -4,7 +4,11 @@ import SwiftUI
 
 struct RepositoriesList: View {
     @DefaultFavoritesService var favourites
+    
     @Binding var repositories: [Repository]
+    @State var selectedRepository: Repository?
+    @State var detailsPresented = false
+    
     var onFavouriteTap: (Repository) -> Void
     
     var body: some View {
@@ -16,23 +20,10 @@ struct RepositoriesList: View {
         }
     }
     
-    func cellFor(_ repository: Repository) -> some View { // TODO: Open details on tap
+    func cellFor(_ repository: Repository) -> some View {
         HStack {
-            AsyncImage(url: repository.owner.avatar) { phase in // TODO: Cache images
-                switch phase {
-                case .success(let image):
-                    image
-                        .resizable()
-                        .frame(width: Sizes.avatarImage, height: Sizes.avatarImage)
-                        .cornerRadius(Sizes.avatarImage / 2)
-                default:
-                    GHImage.avatarPlaceholder.view
-                        .resizable()
-                        .frame(width: Sizes.avatarImage, height: Sizes.avatarImage)
-                        .cornerRadius(Sizes.avatarImage / 2)
-                }
-            }
-            .padding(Sizes.small)
+            Avatar(owner: repository.owner, size: Sizes.avatarImage)
+                .padding(Sizes.small)
             
             VStack(alignment: .leading, spacing: Sizes.small) {
                 Text(repository.name)
@@ -41,20 +32,49 @@ struct RepositoriesList: View {
                     .lineLimit(3)
             }
             .padding(.horizontal, Sizes.small)
+            Spacer()
+            favouritesStack(repository)
+        }
+        .onTapGesture {
+            handleTap(repository)
+        }
+        .sheet(isPresented: $detailsPresented) {
+            DetailsScene(isPresented: $detailsPresented,
+                         repository: selectedRepository!,
+                         onFavouriteTap: onFavouriteTap)
+        }
+    }
+    
+    func favouritesStack(_ repository: Repository) -> some View {
+        VStack {
+            VStack {
+                GHIcons.favourite.view
+                    .resizable()
+                    .frame(width: Sizes.small, height: Sizes.small)
+                Text("\(repository.forks)")
+            }
             
             ZStack {
                 favourites.isFavourite(repository) ? GHIcons.favourite.view.resizable() :
-                                                     GHIcons.unfavourite.view.resizable()
+                GHIcons.unfavourite.view.resizable()
             }
-            .frame(width: Sizes.favouriteImage, height: Sizes.favouriteImage)
+            .frame(width: Sizes.large, height: Sizes.large)
             .onTapGesture {
                 onFavouriteTap(repository)
             }
+        }
+    }
+    
+    func handleTap(_ repository: Repository) {
+        selectedRepository = repository
+        withAnimation(.easeOut) {
+            detailsPresented.toggle()
         }
     }
 }
 
 extension Sizes {
     static let avatarImage: CGFloat = 100
-    static let favouriteImage: CGFloat = 50
+    static let favouritesStackWidth: CGFloat = 32
+    static let favouriteImage: CGFloat = 24
 }

@@ -31,6 +31,7 @@
 		36D8D82D29DFD01000852BFA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82C29DFD01000852BFA /* Date+Extensions.swift */; };
 		36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82F29DFD46200852BFA /* RepositoriesList.swift */; };
 		36D8D83429DFFE3F00852BFA /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D83329DFFE3F00852BFA /* CacheStorage.swift */; };
+		36D8D83929E0976A00852BFA /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D83829E0976A00852BFA /* Avatar.swift */; };
 		A4AA27CCA365BCD0D50A4DC0 /* libPods-GithubTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE91B0911CF00AA12DC9F383 /* libPods-GithubTest.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		36D8D82C29DFD01000852BFA /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		36D8D82F29DFD46200852BFA /* RepositoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesList.swift; sourceTree = "<group>"; };
 		36D8D83329DFFE3F00852BFA /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
+		36D8D83829E0976A00852BFA /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		529E7A76FF78E2B74C027A5E /* Pods-GithubTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTest.release.xcconfig"; path = "Target Support Files/Pods-GithubTest/Pods-GithubTest.release.xcconfig"; sourceTree = "<group>"; };
 		AE91B0911CF00AA12DC9F383 /* libPods-GithubTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GithubTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98A9358FF6D76CAFEFB4D /* Pods-GithubTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTest.debug.xcconfig"; path = "Target Support Files/Pods-GithubTest/Pods-GithubTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				3647387C29DF4FD0008F07CD /* SearchBar.swift */,
+				36D8D83829E0976A00852BFA /* Avatar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				36D8D81529DFA6D800852BFA /* FavouritesStorage.swift in Sources */,
 				3647387D29DF4FD0008F07CD /* SearchBar.swift in Sources */,
 				36D8D81729DFA86800852BFA /* Endpoint.swift in Sources */,
+				36D8D83929E0976A00852BFA /* Avatar.swift in Sources */,
 				36D8D82129DFAF5600852BFA /* NetworkService.swift in Sources */,
 				36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */,
 				36D8D82B29DFC82A00852BFA /* FavouritesStorageImpl.swift in Sources */,
@@ -585,7 +589,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -639,7 +643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -656,7 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubTest/App/Info.plist;
@@ -665,7 +669,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -689,7 +693,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubTest/App/Info.plist;
@@ -698,7 +702,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -723,7 +727,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.illiahorevoi.GithubTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -745,7 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.illiahorevoi.GithubTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

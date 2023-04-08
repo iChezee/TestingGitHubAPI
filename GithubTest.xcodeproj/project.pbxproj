@@ -17,24 +17,13 @@
 		3647388829DF9170008F07CD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3647388729DF9170008F07CD /* Colors.xcassets */; };
 		3647388B29DF91C1008F07CD /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3647388A29DF91C1008F07CD /* Icons.xcassets */; };
 		3647388D29DF9243008F07CD /* Assets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647388C29DF9243008F07CD /* Assets.generated.swift */; };
-		36798D5F29E190A9003D8988 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D5E29E190A9003D8988 /* URL+Extensions.swift */; };
-		36798D6129E19334003D8988 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D6029E19334003D8988 /* String+Extensions.swift */; };
 		36798D6529E1A4CB003D8988 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D6429E1A4CB003D8988 /* Period.swift */; };
 		36798D6729E1A5EF003D8988 /* RepositoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D6629E1A5EF003D8988 /* RepositoriesListViewModel.swift */; };
-		36D8D81329DFA51700852BFA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81229DFA51700852BFA /* Repository.swift */; };
-		36D8D81529DFA6D800852BFA /* FavouritesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81429DFA6D800852BFA /* FavouritesStorage.swift */; };
-		36D8D81729DFA86800852BFA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81629DFA86800852BFA /* Endpoint.swift */; };
-		36D8D81A29DFA91700852BFA /* RepoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81929DFA91700852BFA /* RepoListRequest.swift */; };
-		36D8D81C29DFA96B00852BFA /* NetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81B29DFA96B00852BFA /* NetworkServiceImpl.swift */; };
-		36D8D81F29DFA9C200852BFA /* RepoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81E29DFA9C200852BFA /* RepoListResponse.swift */; };
-		36D8D82129DFAF5600852BFA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82029DFAF5600852BFA /* NetworkService.swift */; };
-		36D8D82329DFBC1400852BFA /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82229DFBC1400852BFA /* Owner.swift */; };
-		36D8D82529DFC09300852BFA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82429DFC09300852BFA /* Reachability.swift */; };
-		36D8D82B29DFC82A00852BFA /* FavouritesStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82A29DFC82A00852BFA /* FavouritesStorageImpl.swift */; };
 		36D8D82D29DFD01000852BFA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82C29DFD01000852BFA /* Date+Extensions.swift */; };
 		36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D82F29DFD46200852BFA /* RepositoriesList.swift */; };
-		36D8D83429DFFE3F00852BFA /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D83329DFFE3F00852BFA /* CacheStorage.swift */; };
 		36D8D83929E0976A00852BFA /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D83829E0976A00852BFA /* Avatar.swift */; };
+		36FAF04129E1CDB90029CB93 /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = 36FAF04029E1CDB90029CB93 /* Services */; };
+		36FAF04329E1CE5B0029CB93 /* DefaultServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAF04229E1CE5B0029CB93 /* DefaultServices.swift */; };
 		A4AA27CCA365BCD0D50A4DC0 /* libPods-GithubTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE91B0911CF00AA12DC9F383 /* libPods-GithubTest.a */; };
 /* End PBXBuildFile section */
 
@@ -62,24 +51,12 @@
 		3647388729DF9170008F07CD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3647388A29DF91C1008F07CD /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		3647388C29DF9243008F07CD /* Assets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.generated.swift; sourceTree = "<group>"; };
-		36798D5E29E190A9003D8988 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		36798D6029E19334003D8988 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		36798D6429E1A4CB003D8988 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		36798D6629E1A5EF003D8988 /* RepositoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewModel.swift; sourceTree = "<group>"; };
-		36D8D81229DFA51700852BFA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		36D8D81429DFA6D800852BFA /* FavouritesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStorage.swift; sourceTree = "<group>"; };
-		36D8D81629DFA86800852BFA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		36D8D81929DFA91700852BFA /* RepoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListRequest.swift; sourceTree = "<group>"; };
-		36D8D81B29DFA96B00852BFA /* NetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceImpl.swift; sourceTree = "<group>"; };
-		36D8D81E29DFA9C200852BFA /* RepoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListResponse.swift; sourceTree = "<group>"; };
-		36D8D82029DFAF5600852BFA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		36D8D82229DFBC1400852BFA /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
-		36D8D82429DFC09300852BFA /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		36D8D82A29DFC82A00852BFA /* FavouritesStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStorageImpl.swift; sourceTree = "<group>"; };
 		36D8D82C29DFD01000852BFA /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		36D8D82F29DFD46200852BFA /* RepositoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesList.swift; sourceTree = "<group>"; };
-		36D8D83329DFFE3F00852BFA /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 		36D8D83829E0976A00852BFA /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		36FAF04229E1CE5B0029CB93 /* DefaultServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServices.swift; sourceTree = "<group>"; };
 		529E7A76FF78E2B74C027A5E /* Pods-GithubTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTest.release.xcconfig"; path = "Target Support Files/Pods-GithubTest/Pods-GithubTest.release.xcconfig"; sourceTree = "<group>"; };
 		AE91B0911CF00AA12DC9F383 /* libPods-GithubTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GithubTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98A9358FF6D76CAFEFB4D /* Pods-GithubTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTest.debug.xcconfig"; path = "Target Support Files/Pods-GithubTest/Pods-GithubTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36FAF04129E1CDB90029CB93 /* Services in Frameworks */,
 				A4AA27CCA365BCD0D50A4DC0 /* libPods-GithubTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,8 +108,6 @@
 				3647386B29DF47D8008F07CD /* App */,
 				3647387B29DF4FC0008F07CD /* Common */,
 				3647386E29DF4950008F07CD /* Scenes */,
-				36D8D80F29DFA4E700852BFA /* Models */,
-				3647386D29DF4947008F07CD /* Services */,
 				3647388429DF911F008F07CD /* Resources */,
 			);
 			path = GithubTest;
@@ -149,19 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				3647384129DF2D80008F07CD /* GithubTestApp.swift */,
+				36FAF04229E1CE5B0029CB93 /* DefaultServices.swift */,
 				3647386C29DF48D2008F07CD /* Info.plist */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		3647386D29DF4947008F07CD /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D83529DFFE4300852BFA /* CacheStorage */,
-				3647387429DF4ACA008F07CD /* FavouritesStorage */,
-				3647387329DF4AC0008F07CD /* NetworkService */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		3647386E29DF4950008F07CD /* Scenes */ = {
@@ -172,25 +139,6 @@
 				3647387829DF4D93008F07CD /* DetailsScene */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		3647387329DF4AC0008F07CD /* NetworkService */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D81B29DFA96B00852BFA /* NetworkServiceImpl.swift */,
-				36D8D82029DFAF5600852BFA /* NetworkService.swift */,
-				36D8D82429DFC09300852BFA /* Reachability.swift */,
-			);
-			path = NetworkService;
-			sourceTree = "<group>";
-		};
-		3647387429DF4ACA008F07CD /* FavouritesStorage */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D81429DFA6D800852BFA /* FavouritesStorage.swift */,
-				36D8D82A29DFC82A00852BFA /* FavouritesStorageImpl.swift */,
-			);
-			path = FavouritesStorage;
 			sourceTree = "<group>";
 		};
 		3647387729DF4D85008F07CD /* RepositoriesScene */ = {
@@ -216,6 +164,7 @@
 				36D8D82629DFC58700852BFA /* Extensions */,
 				36D8D82729DFC59800852BFA /* Views */,
 				3647388129DF5441008F07CD /* Sizes.swift */,
+				36798D6429E1A4CB003D8988 /* Period.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -247,49 +196,10 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		36D8D80F29DFA4E700852BFA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D81129DFA50200852BFA /* Endpoints */,
-				36D8D81029DFA4FC00852BFA /* Entities */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		36D8D81029DFA4FC00852BFA /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D81229DFA51700852BFA /* Repository.swift */,
-				36D8D82229DFBC1400852BFA /* Owner.swift */,
-				36798D6429E1A4CB003D8988 /* Period.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		36D8D81129DFA50200852BFA /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D81D29DFA9AF00852BFA /* RepoList */,
-				36D8D81629DFA86800852BFA /* Endpoint.swift */,
-			);
-			path = Endpoints;
-			sourceTree = "<group>";
-		};
-		36D8D81D29DFA9AF00852BFA /* RepoList */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D81929DFA91700852BFA /* RepoListRequest.swift */,
-				36D8D81E29DFA9C200852BFA /* RepoListResponse.swift */,
-			);
-			path = RepoList;
-			sourceTree = "<group>";
-		};
 		36D8D82629DFC58700852BFA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				36D8D82C29DFD01000852BFA /* Date+Extensions.swift */,
-				36798D5E29E190A9003D8988 /* URL+Extensions.swift */,
-				36798D6029E19334003D8988 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,14 +219,6 @@
 				36798D6629E1A5EF003D8988 /* RepositoriesListViewModel.swift */,
 			);
 			path = RepositoriesList;
-			sourceTree = "<group>";
-		};
-		36D8D83529DFFE4300852BFA /* CacheStorage */ = {
-			isa = PBXGroup;
-			children = (
-				36D8D83329DFFE3F00852BFA /* CacheStorage.swift */,
-			);
-			path = CacheStorage;
 			sourceTree = "<group>";
 		};
 		43D1FDD0DBCA4C2224BBAD5C /* Pods */ = {
@@ -355,6 +257,9 @@
 			dependencies = (
 			);
 			name = GithubTest;
+			packageProductDependencies = (
+				36FAF04029E1CDB90029CB93 /* Services */,
+			);
 			productName = GithubTest;
 			productReference = 3647383E29DF2D80008F07CD /* GithubTest.app */;
 			productType = "com.apple.product-type.application";
@@ -507,28 +412,16 @@
 			files = (
 				3647387029DF49EC008F07CD /* RepositoriesScene.swift in Sources */,
 				3647387629DF4D25008F07CD /* DetailsScene.swift in Sources */,
-				36D8D83429DFFE3F00852BFA /* CacheStorage.swift in Sources */,
-				36D8D81F29DFA9C200852BFA /* RepoListResponse.swift in Sources */,
-				36D8D81529DFA6D800852BFA /* FavouritesStorage.swift in Sources */,
-				36D8D81729DFA86800852BFA /* Endpoint.swift in Sources */,
 				36D8D83929E0976A00852BFA /* Avatar.swift in Sources */,
-				36D8D82129DFAF5600852BFA /* NetworkService.swift in Sources */,
 				36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */,
 				36798D6529E1A4CB003D8988 /* Period.swift in Sources */,
 				36798D6729E1A5EF003D8988 /* RepositoriesListViewModel.swift in Sources */,
-				36D8D82B29DFC82A00852BFA /* FavouritesStorageImpl.swift in Sources */,
-				36798D5F29E190A9003D8988 /* URL+Extensions.swift in Sources */,
-				36D8D81329DFA51700852BFA /* Repository.swift in Sources */,
+				36FAF04329E1CE5B0029CB93 /* DefaultServices.swift in Sources */,
 				3647387A29DF4DB0008F07CD /* RepositoriesSceneViewModel.swift in Sources */,
 				3647384229DF2D80008F07CD /* GithubTestApp.swift in Sources */,
 				36D8D82D29DFD01000852BFA /* Date+Extensions.swift in Sources */,
 				3647388D29DF9243008F07CD /* Assets.generated.swift in Sources */,
 				3647388229DF5441008F07CD /* Sizes.swift in Sources */,
-				36D8D81C29DFA96B00852BFA /* NetworkServiceImpl.swift in Sources */,
-				36798D6129E19334003D8988 /* String+Extensions.swift in Sources */,
-				36D8D82329DFBC1400852BFA /* Owner.swift in Sources */,
-				36D8D82529DFC09300852BFA /* Reachability.swift in Sources */,
-				36D8D81A29DFA91700852BFA /* RepoListRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +699,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36FAF04029E1CDB90029CB93 /* Services */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Services;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3647383629DF2D80008F07CD /* Project object */;
 }

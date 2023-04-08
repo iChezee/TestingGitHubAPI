@@ -1,4 +1,5 @@
 import SwiftUI
+import Services
 
 struct DetailsScene: View {
     @DefaultFavoritesService var favourites

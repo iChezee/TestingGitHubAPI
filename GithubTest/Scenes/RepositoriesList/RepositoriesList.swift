@@ -1,4 +1,5 @@
 import SwiftUI
+import Services
 
 struct RepositoriesList: View {
     @ObservedObject var viewModel: RepositoriesListViewModel

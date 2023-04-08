@@ -1,4 +1,5 @@
 import Foundation
+import Services
 
 class RepositoriesListViewModel: ObservableObject {
     @DefaultNetworkService var network
@@ -70,7 +71,7 @@ private extension RepositoriesListViewModel {
         Task {
             let result = await network.fetchRepos(at: currentPage,
                                                   searchText: searchText,
-                                                  period: period)
+                                                  afterDate: period.date)
             DispatchQueue.main.sync { [weak self] in
                 self?.isLoading = false
             }

@@ -1,9 +1,9 @@
 import Foundation
 
-struct RepoListResponse {
-    let repos: [Repository]
-    var nextPage: URL?
-    var pagesCount: Int?
+public struct RepoListResponse {
+    public let repos: [Repository]
+    public var nextPage: URL?
+    public var pagesCount: Int?
     
     init(repos: [Repository] = [Repository]()) {
         self.repos = repos

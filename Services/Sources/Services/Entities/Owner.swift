@@ -1,9 +1,9 @@
 import Foundation
 
-struct Owner: Hashable {
-    let id: Int
-    let login: String
-    let avatar: URL
+public struct Owner: Hashable {
+    public let id: Int
+    public let login: String
+    public let avatar: URL
 }
 
 extension Owner: Decodable {

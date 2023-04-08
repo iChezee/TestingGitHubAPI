@@ -1,13 +1,13 @@
 import Foundation
 import Combine
 
-class NetworkServiceImpl {
+public class NetworkServiceImpl {
     private let session = URLSession(configuration: .default)
     private let decoder = JSONDecoder()
-    let scheme: String
-    let baseURL: String
+    private let scheme: String
+    private let baseURL: String
     
-    init(scheme: String, baseURL: String) {
+    public init(scheme: String, baseURL: String) {
         self.scheme = scheme
         self.baseURL = baseURL
         self.decoder.dateDecodingStrategy = .iso8601
@@ -15,12 +15,12 @@ class NetworkServiceImpl {
 }
 
 extension NetworkServiceImpl: NetworkService {
-    func fetchRepos(at page: Int, searchText: String, period: Period) async -> Result<RepoListResponse, NetworkError> {
+    public func fetchRepos(at page: Int, searchText: String, afterDate: String) async -> Result<RepoListResponse, NetworkError> {
         if let noInternet = checkInternet() {
             return .failure(noInternet)
         }
         
-        let request = makeRequest(RepoListRequest(page: page, searchText: searchText, selectedPeriod: period))
+        let request = makeRequest(RepoListRequest(page: page, searchText: searchText, afterDate: afterDate))
         let result = await executeRequest(request, response: RepoListResponse.self)
         if case .success(let executed) = result {
             var decoded = executed.decoded

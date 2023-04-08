@@ -55,6 +55,7 @@ private extension NetworkServiceImpl {
     }
     
     func executeRequest<Response>(_ urlRequest: URLRequest, response: Response.Type) async -> Result<(decoded: Response, response: HTTPURLResponse), NetworkError> where Response: Decodable {
+        print("Executing: \(String(describing: urlRequest.url))")
         do {
             let (data, response) = try await session.data(for: urlRequest)
             guard let response = response as? HTTPURLResponse else {

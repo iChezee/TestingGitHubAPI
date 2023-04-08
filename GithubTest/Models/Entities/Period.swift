@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum Period: Int, Identifiable, CaseIterable {
     case day = 0
@@ -29,5 +30,11 @@ enum Period: Int, Identifiable, CaseIterable {
         case .month:
             return dateFormatter.string(from: Date().addOrSubtractMonth(month: -1))
         }
+    }
+    
+    @ViewBuilder
+    var view: RepositoriesList {
+        let viewModel = RepositoriesListViewModel(period: self)
+        RepositoriesList(viewModel: viewModel)
     }
 }

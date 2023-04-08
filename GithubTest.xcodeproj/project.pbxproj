@@ -13,7 +13,6 @@
 		3647387029DF49EC008F07CD /* RepositoriesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647386F29DF49EC008F07CD /* RepositoriesScene.swift */; };
 		3647387629DF4D25008F07CD /* DetailsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647387529DF4D25008F07CD /* DetailsScene.swift */; };
 		3647387A29DF4DB0008F07CD /* RepositoriesSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647387929DF4DB0008F07CD /* RepositoriesSceneViewModel.swift */; };
-		3647387D29DF4FD0008F07CD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647387C29DF4FD0008F07CD /* SearchBar.swift */; };
 		3647388229DF5441008F07CD /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647388129DF5441008F07CD /* Sizes.swift */; };
 		3647388829DF9170008F07CD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3647388729DF9170008F07CD /* Colors.xcassets */; };
 		3647388B29DF91C1008F07CD /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3647388A29DF91C1008F07CD /* Icons.xcassets */; };
@@ -21,6 +20,7 @@
 		36798D5F29E190A9003D8988 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D5E29E190A9003D8988 /* URL+Extensions.swift */; };
 		36798D6129E19334003D8988 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D6029E19334003D8988 /* String+Extensions.swift */; };
 		36798D6529E1A4CB003D8988 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D6429E1A4CB003D8988 /* Period.swift */; };
+		36798D6729E1A5EF003D8988 /* RepositoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D6629E1A5EF003D8988 /* RepositoriesListViewModel.swift */; };
 		36D8D81329DFA51700852BFA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81229DFA51700852BFA /* Repository.swift */; };
 		36D8D81529DFA6D800852BFA /* FavouritesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81429DFA6D800852BFA /* FavouritesStorage.swift */; };
 		36D8D81729DFA86800852BFA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81629DFA86800852BFA /* Endpoint.swift */; };
@@ -58,7 +58,6 @@
 		3647386F29DF49EC008F07CD /* RepositoriesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesScene.swift; sourceTree = "<group>"; };
 		3647387529DF4D25008F07CD /* DetailsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScene.swift; sourceTree = "<group>"; };
 		3647387929DF4DB0008F07CD /* RepositoriesSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSceneViewModel.swift; sourceTree = "<group>"; };
-		3647387C29DF4FD0008F07CD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		3647388129DF5441008F07CD /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		3647388729DF9170008F07CD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3647388A29DF91C1008F07CD /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		36798D5E29E190A9003D8988 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		36798D6029E19334003D8988 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		36798D6429E1A4CB003D8988 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		36798D6629E1A5EF003D8988 /* RepositoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewModel.swift; sourceTree = "<group>"; };
 		36D8D81229DFA51700852BFA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		36D8D81429DFA6D800852BFA /* FavouritesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStorage.swift; sourceTree = "<group>"; };
 		36D8D81629DFA86800852BFA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -297,7 +297,6 @@
 		36D8D82729DFC59800852BFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3647387C29DF4FD0008F07CD /* SearchBar.swift */,
 				36D8D83829E0976A00852BFA /* Avatar.swift */,
 			);
 			path = Views;
@@ -307,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				36D8D82F29DFD46200852BFA /* RepositoriesList.swift */,
+				36798D6629E1A5EF003D8988 /* RepositoriesListViewModel.swift */,
 			);
 			path = RepositoriesList;
 			sourceTree = "<group>";
@@ -510,12 +510,12 @@
 				36D8D83429DFFE3F00852BFA /* CacheStorage.swift in Sources */,
 				36D8D81F29DFA9C200852BFA /* RepoListResponse.swift in Sources */,
 				36D8D81529DFA6D800852BFA /* FavouritesStorage.swift in Sources */,
-				3647387D29DF4FD0008F07CD /* SearchBar.swift in Sources */,
 				36D8D81729DFA86800852BFA /* Endpoint.swift in Sources */,
 				36D8D83929E0976A00852BFA /* Avatar.swift in Sources */,
 				36D8D82129DFAF5600852BFA /* NetworkService.swift in Sources */,
 				36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */,
 				36798D6529E1A4CB003D8988 /* Period.swift in Sources */,
+				36798D6729E1A5EF003D8988 /* RepositoriesListViewModel.swift in Sources */,
 				36D8D82B29DFC82A00852BFA /* FavouritesStorageImpl.swift in Sources */,
 				36798D5F29E190A9003D8988 /* URL+Extensions.swift in Sources */,
 				36D8D81329DFA51700852BFA /* Repository.swift in Sources */,
@@ -672,7 +672,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubTest/App/Info.plist;
@@ -705,7 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubTest/App/Info.plist;

@@ -20,7 +20,7 @@ class RepositoriesSceneViewModel: ObservableObject {
     private var isLoading = false
     private var currentPage = 1
     private var bunch = 20
-    private var total = 0
+    private var totalPages = 0
     private var isFiltered = false {
         didSet {
             filterByFavouriteRepositories()
@@ -52,7 +52,7 @@ class RepositoriesSceneViewModel: ObservableObject {
     }
     
     func fetchNext() {
-        if repositories.count < total && !isLoading {
+        if currentPage < totalPages && !isLoading {
             currentPage += 1
             fetchRepositories()
         }
@@ -75,7 +75,7 @@ private extension RepositoriesSceneViewModel {
             }
             switch result {
             case .success(let response):
-                total = response.total
+                totalPages = response.pagesCount ?? 1
                 DispatchQueue.main.sync { [weak self] in
                     if let repos = self?.checkFavourites(response.repos) {
                         self?.fetchedRepositories.append(contentsOf: repos)

@@ -73,7 +73,7 @@ struct RepositoriesList: View {
     }
 }
 
-extension Sizes {
+fileprivate extension Sizes {
     static let avatarImage: CGFloat = 100
     static let favouritesStackWidth: CGFloat = 32
     static let favouriteImage: CGFloat = 24

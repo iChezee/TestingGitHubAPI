@@ -36,7 +36,7 @@ struct DetailsScene: View {
             }
             .padding(.top, Sizes.large)
             
-            Avatar(owner: repository.owner, size: Sizes.avatarImage)
+            Avatar(owner: repository.owner, size: Sizes.avatarSize)
             infoStack(repository).padding(.horizontal, Sizes.small)
 
             Spacer()
@@ -49,7 +49,6 @@ struct DetailsScene: View {
             Text(repository.name)
             if let description = repository.description {
                 Text("Description:\n\(description)")
-                    .multilineTextAlignment(.center)
             }
             if let language = repository.language {
                 Text("Language: \(language)")
@@ -58,9 +57,10 @@ struct DetailsScene: View {
             Text("Created: \(repository.creationDate.toString())")
             Link("Github repository link", destination: repository.repoLink)
         }
+        .multilineTextAlignment(.center)
     }
 }
 
 fileprivate extension Sizes {
-    static let avatarSize: CGFloat = 128
+    static let avatarSize: CGFloat = 192
 }

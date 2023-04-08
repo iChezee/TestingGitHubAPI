@@ -18,6 +18,8 @@
 		3647388829DF9170008F07CD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3647388729DF9170008F07CD /* Colors.xcassets */; };
 		3647388B29DF91C1008F07CD /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3647388A29DF91C1008F07CD /* Icons.xcassets */; };
 		3647388D29DF9243008F07CD /* Assets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647388C29DF9243008F07CD /* Assets.generated.swift */; };
+		36798D5F29E190A9003D8988 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D5E29E190A9003D8988 /* URL+Extensions.swift */; };
+		36798D6129E19334003D8988 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36798D6029E19334003D8988 /* String+Extensions.swift */; };
 		36D8D81329DFA51700852BFA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81229DFA51700852BFA /* Repository.swift */; };
 		36D8D81529DFA6D800852BFA /* FavouritesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81429DFA6D800852BFA /* FavouritesStorage.swift */; };
 		36D8D81729DFA86800852BFA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8D81629DFA86800852BFA /* Endpoint.swift */; };
@@ -60,6 +62,8 @@
 		3647388729DF9170008F07CD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3647388A29DF91C1008F07CD /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		3647388C29DF9243008F07CD /* Assets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.generated.swift; sourceTree = "<group>"; };
+		36798D5E29E190A9003D8988 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		36798D6029E19334003D8988 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		36D8D81229DFA51700852BFA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		36D8D81429DFA6D800852BFA /* FavouritesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStorage.swift; sourceTree = "<group>"; };
 		36D8D81629DFA86800852BFA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -207,8 +211,8 @@
 		3647387B29DF4FC0008F07CD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				36D8D82729DFC59800852BFA /* Views */,
 				36D8D82629DFC58700852BFA /* Extensions */,
+				36D8D82729DFC59800852BFA /* Views */,
 				3647388129DF5441008F07CD /* Sizes.swift */,
 			);
 			path = Common;
@@ -281,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				36D8D82C29DFD01000852BFA /* Date+Extensions.swift */,
+				36798D5E29E190A9003D8988 /* URL+Extensions.swift */,
+				36798D6029E19334003D8988 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,6 +513,7 @@
 				36D8D82129DFAF5600852BFA /* NetworkService.swift in Sources */,
 				36D8D83029DFD46200852BFA /* RepositoriesList.swift in Sources */,
 				36D8D82B29DFC82A00852BFA /* FavouritesStorageImpl.swift in Sources */,
+				36798D5F29E190A9003D8988 /* URL+Extensions.swift in Sources */,
 				36D8D81329DFA51700852BFA /* Repository.swift in Sources */,
 				3647387A29DF4DB0008F07CD /* RepositoriesSceneViewModel.swift in Sources */,
 				3647384229DF2D80008F07CD /* GithubTestApp.swift in Sources */,
@@ -514,6 +521,7 @@
 				3647388D29DF9243008F07CD /* Assets.generated.swift in Sources */,
 				3647388229DF5441008F07CD /* Sizes.swift in Sources */,
 				36D8D81C29DFA96B00852BFA /* NetworkServiceImpl.swift in Sources */,
+				36798D6129E19334003D8988 /* String+Extensions.swift in Sources */,
 				36D8D82329DFBC1400852BFA /* Owner.swift in Sources */,
 				36D8D82529DFC09300852BFA /* Reachability.swift in Sources */,
 				36D8D81A29DFA91700852BFA /* RepoListRequest.swift in Sources */,

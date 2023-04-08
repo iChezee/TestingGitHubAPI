@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Repository: Hashable, Identifiable {
+public struct Repository: Equatable, Identifiable, Codable {
     public let id: Int
     public let name: String
     public let owner: Owner
@@ -11,9 +11,7 @@ public struct Repository: Hashable, Identifiable {
     public let creationDate: Date
     public let repoLink: URL
     public var isFavourite = false
-}
-
-extension Repository: Decodable {
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -24,5 +22,9 @@ extension Repository: Decodable {
         case forks = "forks_count"
         case creationDate = "created_at"
         case repoLink = "html_url"
+    }
+    
+    public static func ==(lhs: Repository, rhs: Repository) -> Bool {
+        return lhs.id == rhs.id
     }
 }

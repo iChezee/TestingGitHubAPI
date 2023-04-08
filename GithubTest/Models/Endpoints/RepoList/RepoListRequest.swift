@@ -7,7 +7,7 @@ struct RepoListRequest: Endpoint {
     var queryParameters: [String: String]?
     var body: Data?
     
-    init(page: Int, searchText: String, selectedPeriod: SelectedPeriod) {
+    init(page: Int, searchText: String, selectedPeriod: Period) {
         queryParameters = ["q": "\(searchText)+created:>\(selectedPeriod.date)",
                            "sort": "stars",
                            "order": "desc",

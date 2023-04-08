@@ -15,7 +15,7 @@ class NetworkServiceImpl {
 }
 
 extension NetworkServiceImpl: NetworkService {
-    func fetchRepos(at page: Int, searchText: String, period: SelectedPeriod) async -> Result<RepoListResponse, NetworkError> {
+    func fetchRepos(at page: Int, searchText: String, period: Period) async -> Result<RepoListResponse, NetworkError> {
         if let noInternet = checkInternet() {
             return .failure(noInternet)
         }

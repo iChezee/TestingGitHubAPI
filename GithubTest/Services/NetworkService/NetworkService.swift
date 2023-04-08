@@ -1,7 +1,7 @@
 import Foundation
 
 protocol NetworkService {
-    func fetchRepos(at page: Int, searchText: String, period: SelectedPeriod) async -> Result<RepoListResponse, NetworkError>
+    func fetchRepos(at page: Int, searchText: String, period: Period) async -> Result<RepoListResponse, NetworkError>
 }
 
 @propertyWrapper

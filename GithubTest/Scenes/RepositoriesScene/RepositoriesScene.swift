@@ -36,7 +36,7 @@ struct RepositoriesScene: View {
     
     var periodPicker: some View {
         Picker("", selection: $viewModel.selectedPeriod) {
-            ForEach(SelectedPeriod.allCases, id: \.self) {
+            ForEach(Period.allCases, id: \.self) {
                 Text($0.title)
             }
         }
@@ -45,8 +45,11 @@ struct RepositoriesScene: View {
     
     var mainList: some View {
         RepositoriesList(repositories: $viewModel.repositories) {
+            viewModel.loadNext()
+        } onFavouriteTap: {
             viewModel.onFavouriteTap($0)
         }
+
     }
 }
 

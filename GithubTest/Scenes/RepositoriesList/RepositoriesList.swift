@@ -6,10 +6,11 @@ struct RepositoriesList: View {
     @DefaultFavoritesService var favourites
     
     @Binding var repositories: [Repository]
-    @State var selectedRepository: Repository?
-    @State var detailsPresented = false
+    @State private var selectedRepository: Repository?
+    @State private var detailsPresented = false
     
-    var onFavouriteTap: (Repository) -> Void
+    let onLoadMore: () -> Void
+    let onFavouriteTap: (Repository) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: Sizes.small) {

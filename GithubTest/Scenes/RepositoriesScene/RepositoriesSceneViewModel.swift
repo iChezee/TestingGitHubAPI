@@ -6,7 +6,7 @@ class RepositoriesSceneViewModel: ObservableObject {
     @DefaultFavoritesService var favourites
     
     @Published var repositories = [Repository]()
-    @Published var selectedPeriod = SelectedPeriod.day {
+    @Published var selectedPeriod = Period.day {
         didSet {
             fetchRepositories()
         }
@@ -51,7 +51,7 @@ class RepositoriesSceneViewModel: ObservableObject {
         }
     }
     
-    func fetchNext() {
+    func loadNext() {
         if currentPage < totalPages && !isLoading {
             currentPage += 1
             fetchRepositories()
@@ -100,37 +100,5 @@ private extension RepositoriesSceneViewModel {
     
     func filterByFavouriteRepositories() {
         repositories = isFiltered ? fetchedRepositories.filter { $0.isFavourite } : fetchedRepositories
-    }
-}
-
-enum SelectedPeriod: Int, Identifiable, CaseIterable {
-    case day = 0
-    case week
-    case month
-    
-    var id: SelectedPeriod { self }
-    
-    var title: String {
-        switch self {
-        case .day:
-            return "Day"
-        case .week:
-            return "Week"
-        case .month:
-            return "Month"
-        }
-    }
-    
-    var date: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        switch self {
-        case .day:
-            return dateFormatter.string(from: Date().addOrSubtractDay(day: -1))
-        case .week:
-            return dateFormatter.string(from: Date().addOrSubtractDay(day: -7))
-        case .month:
-            return dateFormatter.string(from: Date().addOrSubtractMonth(month: -1))
-        }
     }
 }

@@ -16,7 +16,6 @@ class RepositoriesListViewModel: ObservableObject {
     }
     private var isLoading = false
     private var currentPage = 1
-    private var bunch = 20
     private var totalPages = 0
     private var searchText = ""
     private var isFiltered = false {
@@ -54,7 +53,7 @@ class RepositoriesListViewModel: ObservableObject {
     }
     
     func loadNext() {
-        if currentPage < totalPages && !isLoading {
+        if currentPage < totalPages && !isLoading && !isFiltered {
             currentPage += 1
             fetchRepositories(additional: true)
         }

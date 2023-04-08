@@ -6,14 +6,25 @@ struct RepositoriesList: View {
     @State private var searchText: String = ""
     @State private var detailsPresented = false
     
+    @State private var verticalOffset: CGFloat = 0.0
+    @State private var totalHeight: CGFloat = 0
+    
     var body: some View {
         VStack(spacing: Sizes.medium) {
             searchBar
-            ScrollView {
+            OffsettableScrollView { point in
+                verticalOffset = point.y
+            } content: {
                 ForEach(viewModel.repositories) {
                     cellFor($0)
                     Divider()
                 }
+            }
+            .onChange(of: verticalOffset) { newValue in
+                fetchNextIfNeeded(newValue)
+            }
+            .onChange(of: viewModel.repositories) { newValue in
+                totalHeight = calculateHeightFor(itemsCount: newValue.count)
             }
         }
     }
@@ -98,6 +109,16 @@ private extension RepositoriesList {
                 viewModel.onFavouriteTap(repository)
             }
         }
+    }
+    
+    func fetchNextIfNeeded(_ offset: CGFloat) {
+        if offset + totalHeight < 200 {
+            viewModel.loadNext()
+        }
+    }
+    
+    func calculateHeightFor(itemsCount: Int) -> CGFloat {
+        CGFloat(itemsCount - 5) * (Sizes.avatarImage + (Sizes.small * 2))
     }
 }
 

@@ -37,7 +37,7 @@ struct DetailsScene: View {
             }
             .padding(.top, Sizes.large)
             
-            Avatar(owner: repository.owner, size: Sizes.avatarSize)
+            Avatar(repository.owner.avatarURL, size: Sizes.avatarSize)
             infoStack(repository).padding(.horizontal, Sizes.small)
 
             Spacer()

@@ -1,12 +1,18 @@
 import SwiftUI
 import Services
+import CachedAsyncImage
 
 struct Avatar: View {
-    let owner: Owner
+    let avatarURL: URL
     let size: CGFloat
     
+    init(_ avatarURL: URL, size: CGFloat) {
+        self.avatarURL = avatarURL
+        self.size = size
+    }
+    
     var body: some View {
-        AsyncImage(url: owner.avatar) { phase in // TODO: Cache images
+        CachedAsyncImage(url: avatarURL) { phase in
             switch phase {
             case .success(let image):
                 image

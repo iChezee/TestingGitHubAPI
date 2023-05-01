@@ -65,7 +65,7 @@ struct RepositoriesList: View {
 private extension RepositoriesList {
     func cellFor(_ repository: Repository) -> some View {
         HStack {
-            Avatar(owner: repository.owner, size: Sizes.avatarImage)
+            Avatar(repository.owner.avatarURL, size: Sizes.avatarImage)
                 .padding(Sizes.small)
             
             VStack(alignment: .leading, spacing: Sizes.small) {

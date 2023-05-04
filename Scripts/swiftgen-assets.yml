@@ -1,5 +1,5 @@
-input_dir: ${PROJECT_DIR}/${TARGET_NAME}/Resources/Assets
-output_dir: ${PROJECT_DIR}/${TARGET_NAME}/Resources/Generated
+input_dir: ../GithubTest/Resources/Assets
+output_dir: ../GithubTest/Resources/Generated
 
 #Images
 xcassets:
@@ -8,7 +8,7 @@ xcassets:
         - Colors.xcassets
         - Icons.xcassets
     outputs:
-        templatePath: ${PROJECT_DIR}/scripts/Assets.stencil
+        templatePath: ./Assets.stencil
         output: Assets.generated.swift
         params:
             enumName: Assets

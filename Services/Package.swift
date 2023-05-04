@@ -5,13 +5,14 @@ import PackageDescription
 
 let package = Package(
     name: "Services",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "Services",
             targets: ["Services"]),
     ],
     dependencies: [
+//        .package(url: "https://github.com/realm/realm-swift.git", from: "10.39.0")
     ],
     targets: [
         .target(

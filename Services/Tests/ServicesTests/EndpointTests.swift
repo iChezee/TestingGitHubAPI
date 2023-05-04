@@ -30,7 +30,7 @@ final class EndpointTests: XCTestCase {
             throw CocoaError(.keyValueValidation)
         }
         
-        XCTAssert(url.absoluteString == "github.com/test?username=jonny%20appleseed")
+        XCTAssert(url.absoluteString == "https://github.com/test?username=jonny%20appleseed")
     }
 }
 

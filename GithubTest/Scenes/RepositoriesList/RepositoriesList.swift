@@ -15,7 +15,7 @@ struct RepositoriesList: View {
             OffsettableScrollView { point in
                 verticalOffset = point.y
             } content: {
-                ForEach(viewModel.repositories) {
+                ForEach(viewModel.repositories, id: \.id) {
                     cellFor($0)
                     Divider()
                 }
@@ -63,14 +63,16 @@ struct RepositoriesList: View {
 }
 
 private extension RepositoriesList {
-    func cellFor(_ repository: Repository) -> some View {
+    func cellFor(_ repository: ListRepository) -> some View {
         HStack {
-            Avatar(repository.owner.avatarURL, size: Sizes.avatarImage)
-                .padding(Sizes.small)
+            if let avatarURL = repository.avatarURL {
+                Avatar(avatarURL, size: Sizes.avatarImage)
+                    .padding(Sizes.small)
+            }
             
             VStack(alignment: .leading, spacing: Sizes.small) {
                 Text(repository.name)
-                Text(repository.description ?? "")
+                Text(String(describing: repository.info))
                     .multilineTextAlignment(.leading)
                     .lineLimit(3)
             }
@@ -79,7 +81,7 @@ private extension RepositoriesList {
             favouritesStack(repository)
         }
         .onTapGesture {
-            viewModel.selectedRepository = repository
+            viewModel.getFullRepository(with: repository)
             withAnimation(.easeOut) {
                 detailsPresented.toggle()
             }
@@ -87,11 +89,11 @@ private extension RepositoriesList {
         .sheet(isPresented: $detailsPresented) {
             DetailsScene(isPresented: $detailsPresented,
                          repository: viewModel.selectedRepository!,
-                         onFavouriteTap: viewModel.onFavouriteTap)
+                         onFavouriteTap: { self.viewModel.onFavouriteTap(repository) })
         }
     }
     
-    func favouritesStack(_ repository: Repository) -> some View {
+    func favouritesStack(_ repository: ListRepository) -> some View {
         VStack {
             VStack {
                 GHIcons.favourite.view

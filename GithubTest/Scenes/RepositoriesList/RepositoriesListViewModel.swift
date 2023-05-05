@@ -1,19 +1,21 @@
 import Foundation
 import Services
+import Combine
 
 class RepositoriesListViewModel: ObservableObject {
-    @DefaultNetworkService var network
+    @DefaultDatabase var database
     @DefaultFavoritesService var favourites
     
-    @Published var repositories = [Repository]()
+    @Published var repositories: [ListRepository] = [ListRepository]()
     @Published var selectedRepository: Repository?
     
     private var period: Period
-    private var fetchedRepositories = [Repository]() {
+    private var fetchedRepositories: [ListRepository] = [ListRepository]() {
         didSet {
             filterByFavouriteRepositories()
         }
     }
+    private var cancellables = Set<AnyCancellable>()
     private var isLoading = false
     private var currentPage = 1
     private var totalPages = 0
@@ -26,7 +28,19 @@ class RepositoriesListViewModel: ObservableObject {
     
     init(period: Period) {
         self.period = period
-        fetchRepositories(additional: false)
+        subscribe()
+        Task {
+            await database.fetchRepositories(searchText: searchText, afterDate: period.date)
+        }
+    }
+    
+    func subscribe() {
+        database.shortRepositories
+            .receive(on: DispatchQueue.main)
+            .sink { listRepositories in
+                self.repositories = listRepositories
+            }
+            .store(in: &cancellables)
     }
     
     func onSearchTextChanged(_ text: String) {
@@ -38,18 +52,13 @@ class RepositoriesListViewModel: ObservableObject {
         }
     }
     
-    func isFavourite(_ repository: Repository) -> Bool {
-        favourites.isFavourite(repository)
+    func isFavourite(_ repository: ListRepository) -> Bool {
+        favourites.isFavourite(repository.id)
     }
     
-    func onFavouriteTap(_ repository: Repository) {
-        for (index, item) in fetchedRepositories.enumerated() {
-            if item.id == repository.id {
-                fetchedRepositories[index].isFavourite.toggle()
-                favourites.toogleFavourite(item)
-                break
-            }
-        }
+    func onFavouriteTap(_ repository: ListRepository) {
+        repository.isFavourite = true
+        favourites.toogleFavourite(repository.id)
     }
     
     func loadNext() {
@@ -62,43 +71,49 @@ class RepositoriesListViewModel: ObservableObject {
     func filterTapped() {
         isFiltered.toggle()
     }
+    
+    func getFullRepository(with short: ListRepository) {
+        database.repositories
+            .receive(on: OperationQueue.main)
+            .sink { value in
+                self.selectedRepository = value.first(where: { $0.id == short.id })
+            }
+            .store(in: &cancellables)
+    }
 }
 
 private extension RepositoriesListViewModel {
     func fetchRepositories(additional: Bool) {
         isLoading = true
         Task {
-            let result = await network.fetchRepos(at: currentPage,
-                                                  searchText: searchText,
-                                                  afterDate: period.date)
+            await database.fetchRepositories(searchText: searchText, afterDate: period.date)
             DispatchQueue.main.sync { [weak self] in
                 self?.isLoading = false
             }
-            switch result {
-            case .success(let response):
-                totalPages = response.pagesCount ?? 1
-                DispatchQueue.main.sync { [weak self] in
-                    guard let repos = self?.setFavourites(response.repos) else {
-                        return
-                    }
-                    if additional {
-                        self?.fetchedRepositories.append(contentsOf: repos)
-                    } else {
-                        self?.fetchedRepositories = repos
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
+//            switch result {
+//            case .success(let response):
+//                totalPages = response.pagesCount ?? 1
+//                DispatchQueue.main.sync { [weak self] in
+//                    guard let repos = self?.setFavourites(response.repos) else {
+//                        return
+//                    }
+//                    if additional {
+//                       self?.fetchedRepositories.append(contentsOf: repos)
+//                    } else {
+//                        self?.fetchedRepositories = repos
+//                    }
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
         }
     }
     
     func setFavourites(_ repositories: [Repository]) -> [Repository] {
         var repos = [Repository]()
         for repository in repositories {
-            var repo = repository
-            repo.isFavourite = favourites.isFavourite(repository)
-            repos.append(repo)
+            repository.isFavourite = favourites.isFavourite(repository.id)
+            repos.append(repository)
         }
         
         return repos

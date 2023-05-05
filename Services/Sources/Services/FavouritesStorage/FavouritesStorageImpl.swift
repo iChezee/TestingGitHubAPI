@@ -10,12 +10,11 @@ public class FavouritesStorageImpl: FavouritesStorage {
         }
     }
     
-    public func isFavourite(_ repo: Repository) -> Bool {
-        favouriteRepos.contains(repo.id)
+    public func isFavourite(_ repositoryID: Int) -> Bool {
+        favouriteRepos.contains(repositoryID)
     }
     
-    public func toogleFavourite(_ repository: Repository) {
-        let repositoryID = repository.id
+    public func toogleFavourite(_ repositoryID: Int) {
         if favouriteRepos.first(where: { $0 == repositoryID }) != nil {
             favouriteRepos.remove(repositoryID)
         } else {

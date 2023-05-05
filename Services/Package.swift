@@ -12,12 +12,12 @@ let package = Package(
             targets: ["Services"]),
     ],
     dependencies: [
-//        .package(url: "https://github.com/realm/realm-swift.git", from: "10.39.0")
+        .package(url: "https://github.com/realm/realm-swift.git", from: "10.39.0")
     ],
     targets: [
         .target(
             name: "Services",
-            dependencies: []),
+            dependencies: [.product(name: "RealmSwift", package: "realm-swift")]),
         .testTarget(
             name: "ServicesTests",
             dependencies: ["Services"]),

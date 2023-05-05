@@ -1,8 +1,11 @@
 import Services
 
 @propertyWrapper
-struct DefaultNetworkService {
-    public var wrappedValue: NetworkService { NetworkServiceImpl(scheme: "https", baseURL: "api.github.com")}
+struct DefaultDatabase {
+    public var wrappedValue: DatabaseManager {
+        let networkService = NetworkServiceImpl(scheme: "https", baseURL: "api.github.com")
+        return DatabaseManagerImpl(networkService: networkService)
+    }
 }
 
 @propertyWrapper

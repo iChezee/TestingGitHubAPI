@@ -87,7 +87,6 @@
 				3647384029DF2D80008F07CD /* GithubTest */,
 				3647385129DF2D82008F07CD /* GithubTestTests */,
 				3647383F29DF2D80008F07CD /* Products */,
-				43D1FDD0DBCA4C2224BBAD5C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,13 +217,6 @@
 				36798D6629E1A5EF003D8988 /* RepositoriesListViewModel.swift */,
 			);
 			path = RepositoriesList;
-			sourceTree = "<group>";
-		};
-		43D1FDD0DBCA4C2224BBAD5C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

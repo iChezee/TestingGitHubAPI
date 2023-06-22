@@ -1,6 +1,10 @@
 # Swift Assignment
   This Assignment is intended to check your Swift knowledge and general development practices.
 
+# Install
+  To compile the project you will need [SwiftLint](https://github.com/realm/SwiftLint) and [SwiftGen](https://github.com/SwiftGen/SwiftGen) installed. Project use system-wide installation so you will need homebrew and two command in your terminal and restaring Xcode after installation.
+
+
 # The Assignment Trending Repositories:
   Create an iphone (iOS) application that displays the most trending repositories on GitHub that were created in the last day, last week and last month. The user should be able to choose which timeframe they want to view. In the same screen, the list of trending repositories sorted by the number of stars should be shown int a table. Each cell (repository) on the list should contain the following information:
   

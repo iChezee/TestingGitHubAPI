@@ -38,8 +38,8 @@ extension EndpointTests {
     struct TestEndpoint: Endpoint {
         var path = "/test"
         var method = HTTPMethod.get
-        var queryParameters: [String : String]? = ["username": "jonny"]
-        var headers: [String : String]? = ["X-Tally-Header": "Test header"]
+        var queryParameters: [String: String]? = ["username": "jonny"]
+        var headers: [String: String]? = ["X-Tally-Header": "Test header"]
         var body: Data?
     }
 }

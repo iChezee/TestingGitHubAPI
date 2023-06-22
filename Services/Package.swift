@@ -9,17 +9,15 @@ let package = Package(
     products: [
         .library(
             name: "Services",
-            targets: ["Services"]),
+            targets: ["Services"])
     ],
-    dependencies: [
-//        .package(url: "https://github.com/realm/realm-swift.git", from: "10.39.0")
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "Services",
             dependencies: []),
         .testTarget(
             name: "ServicesTests",
-            dependencies: ["Services"]),
+            dependencies: ["Services"])
     ]
 )

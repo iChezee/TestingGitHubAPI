@@ -24,6 +24,7 @@ public struct Repository: Equatable, Identifiable, Codable {
         case repoLink = "html_url"
     }
     
+    // swiftlint:disable:next operator_whitespace
     public static func ==(lhs: Repository, rhs: Repository) -> Bool {
         return lhs.id == rhs.id
     }

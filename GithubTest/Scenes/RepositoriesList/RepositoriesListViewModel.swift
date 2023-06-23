@@ -5,6 +5,7 @@ class RepositoriesListViewModel: ObservableObject {
     @DefaultNetworkService var network
     @DefaultFavoritesService var favourites
     
+    @Published var isLoading = false
     @Published var repositories = [Repository]()
     @Published var selectedRepository: Repository?
     
@@ -14,7 +15,7 @@ class RepositoriesListViewModel: ObservableObject {
             filterByFavouriteRepositories()
         }
     }
-    private var isLoading = false
+    
     private var currentPage = 1
     private var totalPages = 0
     private var searchText = ""
@@ -71,26 +72,35 @@ private extension RepositoriesListViewModel {
             let result = await network.fetchRepos(at: currentPage,
                                                   searchText: searchText,
                                                   afterDate: period.date)
-            DispatchQueue.main.sync { [weak self] in
-                self?.isLoading = false
-            }
             switch result {
             case .success(let response):
-                totalPages = response.pagesCount ?? 1
-                DispatchQueue.main.sync { [weak self] in
-                    guard let repos = self?.setFavourites(response.repos) else {
-                        return
-                    }
-                    if additional {
-                        self?.fetchedRepositories.append(contentsOf: repos)
-                    } else {
-                        self?.fetchedRepositories = repos
-                    }
-                }
+                successLoaded(response, additional: additional)
             case .failure(let error):
                 print(error)
+                DispatchQueue.main.sync { [weak self] in
+                    self?.isLoading = false
+                }
             }
         }
+    }
+    
+    func successLoaded(_ response: RepoListResponse, additional: Bool) {
+        totalPages = response.pagesCount ?? 1
+        DispatchQueue.main.sync { [weak self] in
+            guard let repos = self?.setFavourites(response.repos) else {
+                return
+            }
+            if additional {
+                self?.fetchedRepositories.append(contentsOf: repos)
+            } else {
+                self?.fetchedRepositories = repos
+            }
+            self?.isLoading = false
+        }
+    }
+    
+    func setLoaded() {
+        
     }
     
     func setFavourites(_ repositories: [Repository]) -> [Repository] {

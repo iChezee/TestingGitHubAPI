@@ -131,8 +131,8 @@
 		3647386E29DF4950008F07CD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				36D8D82E29DFD45200852BFA /* RepositoriesList */,
 				3647387729DF4D85008F07CD /* RepositoriesScene */,
+				36D8D82E29DFD45200852BFA /* RepositoriesList */,
 				3647387829DF4D93008F07CD /* DetailsScene */,
 			);
 			path = Scenes;

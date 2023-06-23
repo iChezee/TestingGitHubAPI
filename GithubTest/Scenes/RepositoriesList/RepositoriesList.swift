@@ -12,20 +12,43 @@ struct RepositoriesList: View {
     var body: some View {
         VStack(spacing: Sizes.medium) {
             searchBar
-            OffsettableScrollView { point in
-                verticalOffset = point.y
-            } content: {
-                ForEach(viewModel.repositories) {
-                    cellFor($0)
-                    Divider()
-                }
+            if viewModel.repositories.isEmpty {
+                initialLoadingView
             }
-            .onChange(of: verticalOffset) { newValue in
-                fetchNextIfNeeded(newValue)
+            loadedView
+        }
+        .frame(maxHeight: .infinity)
+    }
+    
+    var initialLoadingView: some View {
+        ZStack {
+            if viewModel.isLoading {
+                ProgressView()
+                    .padding(.top, Sizes.small)
+            } else {
+                Text("There is no repos for today")
             }
-            .onChange(of: viewModel.repositories) { newValue in
-                totalHeight = calculateHeightFor(itemsCount: newValue.count)
+        }
+    }
+    
+    var loadedView: some View {
+        OffsettableScrollView { point in
+            verticalOffset = point.y
+        } content: {
+            ForEach(viewModel.repositories) {
+                cellFor($0)
+                Divider()
             }
+            if viewModel.isLoading && !viewModel.repositories.isEmpty {
+                ProgressView()
+                    .padding(.top, Sizes.small)
+            }
+        }
+        .onChange(of: verticalOffset) { newValue in
+            fetchNextIfNeeded(newValue)
+        }
+        .onChange(of: viewModel.repositories) { newValue in
+            totalHeight = calculateHeightFor(itemsCount: newValue.count)
         }
     }
     
